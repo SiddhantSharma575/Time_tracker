@@ -1,6 +1,10 @@
 # Time Tracker App
 
 A time tracking application built in React Native using Expo CLI.
+
+## Screenshot
+![Alt text](src/assets/screenshot.png)
+
    
 ## Get started
 
