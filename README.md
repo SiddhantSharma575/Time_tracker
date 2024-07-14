@@ -5,6 +5,9 @@ A time tracking application built in React Native using Expo CLI.
 ## Screenshot
 ![Alt text](src/assets/screenshot.png)
 
+## Demo Video
+[Watch the video](src/assets/video.webm)
+
    
 ## Get started
 

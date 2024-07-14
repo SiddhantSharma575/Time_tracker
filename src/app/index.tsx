@@ -33,11 +33,11 @@ export default function Index() {
 
   const calculateElapsedTime = () => {
     if (timer.isRunning) {
-      const startTime = projects.filter(
-        (project) => project.id === selectedCourseId
+      const startTime = fetchedprojects.filter(
+        (project) => project.id === timer.currentSelectedProjected
       )[0].startTime;
-      const trackedTime = projects.filter(
-        (project) => project.id === selectedCourseId
+      const trackedTime = fetchedprojects.filter(
+        (project) => project.id === timer.currentSelectedProjected
       )[0].trackedTime;
       const startTimeDate = new Date(startTime);
       const currentTime = new Date();
@@ -82,7 +82,11 @@ export default function Index() {
     );
     const updatedProjects = projects.map((project) => {
       if (project.id === selectedCourseId) {
-        return { ...project, startTime: new Date().toISOString() };
+        if (project.startTime === 0) {
+          return { ...project, startTime: new Date().toISOString() };
+        } else {
+          return { ...project };
+        }
       } else {
         return { ...project };
       }
@@ -100,7 +104,14 @@ export default function Index() {
         currentSelectedProjected: selectedCourseId,
       })
     );
-    dispatch(setCourseProjects(projects));
+    const updatedProjects = projects.map((project) => {
+      if (project.id === selectedCourseId) {
+        return { ...project, startTime: new Date().toISOString() };
+      } else {
+        return { ...project };
+      }
+    });
+    dispatch(setCourseProjects(updatedProjects));
   };
 
   const handleSwitchProject = (

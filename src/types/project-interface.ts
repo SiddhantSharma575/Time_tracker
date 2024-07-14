@@ -2,6 +2,6 @@ export interface ProjectInterface {
   id: number;
   title: string;
   isActive: boolean;
-  startTime: string;
+  startTime: number;
   trackedTime: number;
 }

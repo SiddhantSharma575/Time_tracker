@@ -12,24 +12,16 @@ import {
   REHYDRATE,
 } from "redux-persist";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import thunk from "redux-thunk";
 
 // Separate persist configurations for each reducer
 const projectsPersistConfig = {
   key: "projects",
   storage: AsyncStorage,
-  // Add any blacklist or whitelist if necessary
-  // blacklist: ['nonSerializableKey'],
-  // whitelist: ['serializableKey'],
 };
 
 const globalTimerPersistConfig = {
   key: "globalTimer",
   storage: AsyncStorage,
-  // Add any blacklist or whitelist if necessary
-  //   blacklist: ["nonSerializableKey"],
-  //   whitelist: ["serializableKey"],
-  //   blacklist: ["register", "rehydrate"], // Specify keys that you don't want to persistr
 };
 
 const rootReducer = {
